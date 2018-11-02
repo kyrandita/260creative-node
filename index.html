@@ -11,8 +11,8 @@
     <h1>Basic Alchemy</h1>
     <span>click any two already discovered elements, if they combine you'll get a new element</span>
     <span>Time: {{mc.time}}</span>
-    <div ng-repeat="element in mc.elements" onClick="mc.select(element)" ng-class="{selected: mc.selected.includes(element)}">
-      {{element}}
+    <div ng-repeat="element in mc.elements" ng-click="mc.select(element)" ng-class="{selected: mc.selected.includes(element), element: true}">
+      <span>{{element}}</span>
     </div>
   </div>
 </body>
