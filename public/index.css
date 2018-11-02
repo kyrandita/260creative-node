@@ -1,0 +1,42 @@
+body {
+  background-color: purple;
+}
+
+#playground {
+  display: flex;
+  flex-direction: row;
+  background-color: #ccc;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.element {
+  position: relative;
+  height: 150px;
+  background-color: gray;
+  margin: .5em;
+  width: 150px;
+  border-width: 3px;
+  border-color: transparent;
+  border-style: dashed;
+}
+ .element img {
+   max-width: 150px;
+   max-height: 150px;
+ }
+ .element span {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   background-color: black;
+   color: white;
+   padding: 5px;
+ }
+
+.selected {
+  border-color: red;
+}
+
+h1 {
+  color: red;
+}

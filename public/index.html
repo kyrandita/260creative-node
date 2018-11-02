@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src='Alchemy.js'></script>
+  <link rel='stylesheet' type="text/css" href='index.css'/>
+</head>
+<body>
+  <div ng-app='app' ng-controller='mainCtrl as mc'>
+    <h1>Basic Alchemy</h1>
+    <h2>click any two already discovered elements, if they combine you'll get a new element</h2>
+    <span>Time: {{mc.time}}</span>
+    <div id="playground">
+      <div ng-repeat="element in mc.elements" ng-click="mc.select(element)" ng-class="{selected: mc.selected.includes(element), element: true}">
+        <img ng-src="{{element}}.png">
+        <span>{{element}}</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -3,17 +3,7 @@ const fs = require('fs');
 
 const app = express();
 
-app.get('/', (req, res) => {
-  fs.readFile(__dirname + '/index.html', (err, data) => {
-    res.send(data.toString());
-  });
-});
-app.get('/Alchemy.js', (req, res) => {
-  fs.readFile(__dirname + '/Alchemy.js', (err, data) => {
-    res.send(data.toString());
-  });
-});
-//player starts with air, fire, earth, and water
+app.use(express.static('public'));
 const elements = [
   'air',
   'boiler',
