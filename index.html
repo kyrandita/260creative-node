@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!-- doo something with the API -->
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src='Alchemy.js'></script>
+</head>
+<body>
+  <div ng-app='app' ng-controller='mainCtrl as mc'>
+    <h1>Basic Alchemy</h1>
+    <span>click any two already discovered elements, if they combine you'll get a new element</span>
+    <span>Time: {{mc.time}}</span>
+    <div ng-repeat="element in mc.elements" onClick="mc.select(element)" ng-class="{selected: mc.selected.includes(element)}">
+      {{element}}
+    </div>
+  </div>
+</body>
+</html>
