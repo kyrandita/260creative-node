@@ -16,7 +16,6 @@ function mainCtrl($scope, $interval, $http) {
       $http.get('/combine', {params: {el1: this.selected[0], el2: this.selected[1]}})
       .then(SuccessResponse => {
         if (SuccessResponse.status === 200) {
-          console.log(SuccessResponse.data);
           if (!this.elements.includes(SuccessResponse.data)) {
             this.elements.push(SuccessResponse.data);
             this.checkWin();

@@ -49,15 +49,10 @@ const highScores = [];
 app.get('/combine', (req, res) => {
   const el1 = req.query.el1;
   const el2 = req.query.el2;
-  console.log(el1, el2);
   const newEl = Object.keys(combinations).reduce((carry, level1) => {
-    console.log('level1:',level1, carry);
     if (!carry && (el1 === level1 || el2 === level1)) {
       carry = Object.keys(combinations[level1]).reduce((inner, level2) => {
-        console.log('level2:',level2, inner);
-        console.log('test', !inner, el1 === level2, el2 === level2);
         if (!inner && (el1 === level2 || el2 === level2)) {
-          console.log('GOT HERE', combinations[level1][level2]);
           return combinations[level1][level2];
         }
         return inner;
@@ -73,10 +68,7 @@ app.get('/combine', (req, res) => {
 });
 
 app.get('/winCheck', (req, res) => {
-  console.log(req.query);
   const userElements = req.query.elements;
-  console.log(userElements.sort().join(''));
-  console.log(elements.sort().join(''));
   if (userElements.sort().join('') === elements.sort().join('')) {
     res.send(true);
   } else {
@@ -94,7 +86,5 @@ app.get('/win', (req, res) => {
   } else {
     res.status(400).send(false);
   }
-  console.log(highScores);
-  //TODO, insecure, but they'll pass the array of elements, and their name with time to add to the high score list. super hackable
 });
 app.listen(8082);
