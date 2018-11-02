@@ -8,6 +8,7 @@ function mainCtrl($scope, $interval, $http) {
   this.startTime = (Date.now() / 1000);
   this.selected = [];
   this.time = 0;
+  this.highScores = [];
   this.select = (el) => {
     if (!this.selected.includes(el)) {
       this.selected.push(el);
@@ -34,7 +35,7 @@ function mainCtrl($scope, $interval, $http) {
       $interval.cancel(intervalRef);
       $http.get('win', {params: {elements: this.elements, name: userName, time: this.time}})
       .then(SuccessResponse => {
-
+        this.updateScores();
       }, FailResponse => {
 
       });
@@ -42,6 +43,15 @@ function mainCtrl($scope, $interval, $http) {
 
     });
   }
+  this.updateScores = () => {
+    $http.get('/scores')
+    .then(SuccessResponse => {
+      this.highScores = SuccessResponse.data;
+    }, FailResponse => {
+
+    })
+  }
+  this.updateScores();
   var tick = () => {
     this.time = Math.trunc((Date.now()/1000) - this.startTime);
   }

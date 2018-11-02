@@ -17,6 +17,23 @@
         <span>{{element}}</span>
       </div>
     </div>
+    <h2>Scoreboard</h2>
+    <div id='highscore'>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="score in mc.highScores">
+            <td>{{score.name}}</td>
+            <td>{{score.time}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </body>
 </html>

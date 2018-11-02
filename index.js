@@ -77,4 +77,9 @@ app.get('/win', (req, res) => {
     res.status(400).send(false);
   }
 });
+
+app.get('/scores', (req, res) => {
+  res.send(highScores);
+})
+
 app.listen(8082);
